@@ -10,7 +10,7 @@ const app = express();
 var homePage = require('./routes/index');
 var signUpPage = require('./routes/signUp');
 var searchBar = require('./routes/searchBar');
-
+var admin = require('./routes/admin');
 
 // set views for each route destination page
 app.set('view engine', 'ejs');
@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', homePage);
 app.use('/', signUpPage);
 app.use('/', searchBar);
+app.use('/', admin);
 
 app.listen(port,()=>{
     console.log('running on port 8080')

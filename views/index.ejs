@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
-</head>
+    <%-include('./partials/head') %>
 <body>
     <header id="home">
         <div class="logo">
@@ -19,13 +10,12 @@
         <div class="search">
             <form action="/search" method="POST" novalidate>
             <input type="search" placeholder="Title, Author" name="searchBar">
-            <button class="searching all" style="cursor: pointer;">search</button>
+            <button class="searching allButton" style="cursor: pointer;">search</button>
         </form>
         </div>
 
-        <div class="addCart">
-            <i class="fa-solid fa-user" style="color:rgb(82, 191, 79)"></i> &nbsp;
-            <h4 style="font-weight: bold;">Admin</h4>
+        <div class="adminSection">
+            <i class="fa-solid fa-user admin" style="color:rgb(82, 191, 79)"></i>
         </div>
     </header>
 
@@ -41,12 +31,11 @@
 
     <main id="main">
 
-
         <div class="content">
             <h2>Satisfy the thirst of<br> knowledge</h2>
             <h2 style="color:rgb(82, 191, 79); font-size: 40px;">Keep your mind fresh</h2>
             <p style="font-size: 16px; text-transform: lowercase;">Explore the world of books</p>
-            <a href="popup.html"><button class="button all" >Rent</button> </a>
+            <a href="popup.html"><button class="button allButton" >Rent</button> </a>
         </div>
     </main>
 
@@ -55,157 +44,79 @@
         <!-- thriller books -->
         <div class="mySlides fade" >
             <h1 class="heading">Thrillers</h1>
-            <div class="card" title="Before I go to sleep">
+             <% userData.forEach((data)=>{
+                 if(data.category_id == 2){%>
+            <div class="card">
                 <div class="box">
-                    <img src="thrillers/before.jpg" alt="">
+                    <img src="<%=data.image_src%>" alt="">
                 </div>
-                <button class="price">
-                    $10.61
-                </button>
+                <h3><%= data.Title%></h3>
+                <h3><%= data.author_name%></h3>
            </div>
-          
-            <div class="card" title="Verity">
-                <div class="box"> 
-                    <img src="thrillers/Verity.jpg" alt="">
-                </div>
-                <button class="price">
-                $19.98
-                </button>
-           </div>
-          
-            <div class="card">
-                <div class="box">
-                    <img src="thrillers/couple.jpg" alt="">
-              </div>
-              <button class="price">
-                $9.59
-                </button>
-            </div>
-
-            <div class="card">
-                <div class="box">
-                    <img src="thrillers/train.jpg" alt="">
-                </div>
-                <button class="price">
-                $12.78
-                </button>
-            </div>  
-
-            <div class="card">
-                <div class="box">
-                    <img src="thrillers/dragon.jpg" alt="">
-                </div>
-                <button class="price">
-                 $15.68
-                </button>
-            </div>
-        
+           <%} })%>  
         </div>
 
               <!-- love books -->
         <div class="mySlides fade">
             <h1 class="heading">Romance</h1>
+            <% userData.forEach((data)=>{
+                if(data.category_id == 3){%>
             <div class="card">
                 <div class="box">
-                    <img src="love/fifty_shades.jpg" alt="">
+                    <img src="<%=data.image_src%>" alt="">
                 </div>
-                <button class="price">
-                    $10.96
-                </button>
-            </div> 
-                
-            <div class="card">
-                <div class="box"> 
-                    <img src="love/first.jpg" alt="">
-                </div>
-                <button class="price">
-                    $8.85
-                </button>
+                <h3><%= data.Title%></h3>
+                <h3><%= data.author_name%></h3>
             </div>
-              
-            <div class="card">
-                <div class="box">
-                    <img src="love/save.jpg" alt="">
-                </div>
-                <button class="price">
-                    $12.51
-                </button>
-            </div>
-    
-            <div class="card">
-                <div class="box">
-                    <img src="love/cast.jpg" alt="">
-                </div>
-                <button class="price">
-                   $10.28
-                </button>
-            </div>   
-                
-            <div class="card">
-                <div class="box" title="Next year in Havana">
-                    <img src="love/havana.jpg" alt="">
-                </div>
-                <button class="price">
-                     $18.91 
-                </button>
-                </div>
+            <%} })%>  
         </div>
 
              <!-- Psychology books-->
         <div class="mySlides fade">
             <h1 class="heading">Psychology</h1>
+            <% userData.forEach((data)=>{
+                if(data.category_id == 1){%>
             <div class="card">
                 <div class="box">
-                    <img src="psychology/clothes.jpg" alt="">
+                    <img src="<%=data.image_src%>" alt="">
                 </div>
-                    <button class="price">
-                        $21.93
-                    </button>
+                <h3><%= data.Title%></h3>
+                <h3><%= data.author_name%></h3>
             </div> 
-                    
-            <div class="card">
-                <div class="box"> 
-                    <img src="psychology/end.jpg" alt="">
-                </div>
-                    <button class="price">
-                        $11.38
-                    </button>
-            </div>
-                  
-            <div class="card">
-                <div class="box">
-                    <img src="psychology/nego.jpg" alt="">
-                </div>
-                    <button class="price">
-                        $8.81
-                    </button>
-            </div>
-        
-            <div class="card">
-                <div class="box">
-                    <img src="psychology/einstein.jpg" alt="">
-                </div>
-                    <button class="price">
-                       $9.37
-                    </button>
-            </div>   
-                    
-            <div class="card">
-                <div class="box" title="Next year in Havana">
-                    <img src="psychology/fast.png" alt="">
-                </div>
-                    <button class="price">
-                         $19.31 
-                    </button>
-            </div>
+            <%} })%>  
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     
     </div>
+
+    <!-- modal for login adimn -->
+    <div class="loginModal">
+        <div class="modal-content">
+            <form action="/login" method="POST" class="form">
+                <span class="close">&times;</span>
+
+                <div class="image">
+                    <i class="fa-solid fa-user admin" style="color:rgb(82, 191, 79)"></i>
+                </div>
+
+                <div class="input-content">
+                    <label for="email" >Email</label>
+                    <input type="text" name="email" placeholder="Enter Email" class="email input">
+                </div>
+        
+                <div class="input-content">
+                    <label for="password">Password</label>
+                    <input type="text" name="password" placeholder="Enter Password" class="password input">
+                </div>
+
+                <button type="submit" class="login">Login</button>
+            </form>
+        </div>
+    </div>
+
     <!-- footer design for webpage -->
-    
     <footer id="footer">
         <div class="company">
             <h4>Company</h4>
