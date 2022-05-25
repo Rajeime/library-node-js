@@ -12,5 +12,22 @@ router.get('/',(req,res)=>{
     
 })
 
+// searchbar post request
+
+router.post('/admin',(req,res)=>{
+    let search = req.body.searchBar
+    console.log(search)
+    // res.render('index')
+    db.query('SELECT * FROM library.books WHERE Title Like ?' ['%' + search +'%'],(error, data)=>{
+        if(!error){
+            res.send(data)
+        }
+
+        else{
+            console.log('error')
+        }
+    })
+})
+
 
 module.exports = router

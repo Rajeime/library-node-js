@@ -13,7 +13,7 @@ router.post('/login',(req,res)=>{
         }
 
         else{
-            res.redirect('/')
+            res.redirect('/',{message:'Incorrect credentials'})
         }
         res.end()
     })

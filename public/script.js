@@ -1,3 +1,17 @@
+// javascript code for active links
+let mainLinks = Array.from(document.querySelectorAll('.mainLinks'));
+
+mainLinks.forEach((links)=>{
+  links.addEventListener('click',(e)=>{
+    mainLinks.forEach((link)=>{
+      link.classList.remove('active')
+    })
+    e.target.classList = 'active'
+  })
+})
+
+
+
 // javascript code for slideshow for each book
 
 var slideIndex = 1;
@@ -48,3 +62,23 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+// rent button action and cart
+let rentButtons = document.querySelectorAll('.rentBoook');
+let cart = []
+
+rentButtons.forEach((button)=>{
+  button.addEventListener('click',(e)=>{
+    let contents = e.target.parentElement.children
+    let image = contents[0].children[0].src;
+    let title = contents[1].children[0].innerText ;
+    let author = contents[1].children[1].innerText;  
+    cart.push({
+      image: image,
+      title: title,
+      author: author
+    })
+    console.log(cart)
+  })
+})

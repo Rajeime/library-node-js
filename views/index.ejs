@@ -4,28 +4,28 @@
 <body>
     <header id="home">
         <div class="logo">
-            <h1><span style="color:rgb(82, 191, 79);">Stony Hill</span> Primary</h1>
+            <h1><span style="color:rgb(72, 127, 201);;">Stony Hill</span> Primary</h1>
         </div>
 
         <div class="search">
-            <form action="/search" method="POST" novalidate>
-            <input type="search" placeholder="Title, Author" name="searchBar">
-            <button class="searching allButton" style="cursor: pointer;">search</button>
-        </form>
+            <form action="/admin" method="POST" novalidate>
+                <input type="search" placeholder="Title" name="searchBar">
+                <button class="searching allButton" style="cursor: pointer;">search</button>
+            </form>
         </div>
 
         <div class="adminSection">
-            <i class="fa-solid fa-user admin" style="color:rgb(82, 191, 79)"></i>
+            <i class="fa-solid fa-user admin"></i>
         </div>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#books">Books Available</a></li>
-            <li><a href="#newRelease">New Release</a></li>
-            <li><a href="#s">Coming Soon</a></li>
-            <li><a href="#footer">Contact</a></li>
+            <li><a href="#home" class=" mainLinks active">Home</a></li>
+            <li><a href="#books" class=" mainLinks">Books Available</a></li>
+            <li><a href="#newRelease" class=" mainLinks">New Release</a></li>
+            <li><a href="#s" class=" mainLinks">Coming Soon</a></li>
+            <li><a href="#footer" class=" mainLinks">Contact</a></li>
         </ul>
     </nav>
 
@@ -33,7 +33,7 @@
 
         <div class="content">
             <h2>Satisfy the thirst of<br> knowledge</h2>
-            <h2 style="color:rgb(82, 191, 79); font-size: 40px;">Keep your mind fresh</h2>
+            <h2 style="color:rgb(72, 127, 201); font-size: 40px;">Keep your mind fresh</h2>
             <p style="font-size: 16px; text-transform: lowercase;">Explore the world of books</p>
             <a href="popup.html"><button class="button allButton" >Rent</button> </a>
         </div>
@@ -44,44 +44,53 @@
         <!-- thriller books -->
         <div class="mySlides fade" >
             <h1 class="heading">Thrillers</h1>
-             <% userData.forEach((data)=>{
-                 if(data.category_id == 2){%>
-            <div class="card">
-                <div class="box">
-                    <img src="<%=data.image_src%>" alt="">
+                <% userData.forEach((data)=>{
+                    if(data.category_id == 2){%>
+                <div class="card">
+                    <div class="book-image">
+                        <img src="<%=data.image_src%>" alt="">
+                    </div>
+                    <div style="display:none">
+                        <h3><%= data.Title%></h3>
+                        <h3><%= data.author_name%></h3>
+                    </div>
+                        <button class="rentBoook">Rent</button>
                 </div>
-                <h3><%= data.Title%></h3>
-                <h3><%= data.author_name%></h3>
-           </div>
-           <%} })%>  
+                <%} })%> 
         </div>
 
-              <!-- love books -->
+        <!-- love books -->
         <div class="mySlides fade">
             <h1 class="heading">Romance</h1>
             <% userData.forEach((data)=>{
                 if(data.category_id == 3){%>
             <div class="card">
-                <div class="box">
+                <div class="book-image">
                     <img src="<%=data.image_src%>" alt="">
                 </div>
-                <h3><%= data.Title%></h3>
-                <h3><%= data.author_name%></h3>
+                <div style="display:none">
+                    <h3><%= data.Title%></h3>
+                    <h3><%= data.author_name%></h3>
+                </div>
+                <button class="rentBoook">Rent</button>
             </div>
             <%} })%>  
         </div>
 
-             <!-- Psychology books-->
+        <!-- Psychology books-->
         <div class="mySlides fade">
             <h1 class="heading">Psychology</h1>
             <% userData.forEach((data)=>{
                 if(data.category_id == 1){%>
             <div class="card">
-                <div class="box">
+                <div class="book-image">
                     <img src="<%=data.image_src%>" alt="">
                 </div>
-                <h3><%= data.Title%></h3>
-                <h3><%= data.author_name%></h3>
+                <div style="display:none">
+                    <h3><%= data.Title%></h3>
+                    <h3><%= data.author_name%></h3>
+                </div>
+                <button class="rentBoook">Rent</button>
             </div> 
             <%} })%>  
         </div>
@@ -98,7 +107,7 @@
                 <span class="close">&times;</span>
 
                 <div class="image">
-                    <i class="fa-solid fa-user admin" style="color:rgb(82, 191, 79)"></i>
+                    <i class="fa-solid fa-user admin" style="color:rgb(72, 127, 201);"></i>
                 </div>
 
                 <div class="input-content">
@@ -111,7 +120,7 @@
                     <input type="text" name="password" placeholder="Enter Password" class="password input">
                 </div>
 
-                <button type="submit" class="login">Login</button>
+                <button type="submit" class="login">Login</button>               
             </form>
         </div>
     </div>

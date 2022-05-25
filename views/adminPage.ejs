@@ -2,6 +2,35 @@
 <html lang="en">
     <%-include('./partials/head') %>
 <body>
-    <h1>admin</h1>
+    <header id="home" class="admin-top-Nav">
+        <div class="logo">
+            <!-- <h1><span style="color:rgb(82, 191, 79);">Stony Hill</span> Primary</h1> -->
+        </div>
+
+        <div class="search">
+            <form action="/admin" method="POST" novalidate>
+                <input type="search" placeholder="Title" name="searchBar">
+                <button class="searching allButton" style="cursor: pointer;">search</button>
+            </form>
+        </div>
+
+        <div class="adminSection adminIcons">
+            <!-- <i class="fa-solid fa-user admin" style="color:rgb(82, 191, 79)"></i> -->
+            <a href="/"><i class="fa-solid fa-right-from-bracket" style="color:rgb(82, 191, 79)"></i></a>
+        </div>
+    </header>
+
+    <div class="sidenav">
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+      </div>
+      
+
+      <div class="main">
+        <h2>Sidenav Example</h2>
+        <p>This sidenav is always shown.</p>
+      </div>
 </body>
 </html>
